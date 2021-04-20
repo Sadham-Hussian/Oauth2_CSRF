@@ -1,0 +1,23 @@
+{% if user %}
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+<style>pre{white-space:wrap}</style>
+<div class="text-xl font-medium text-black">Logged in as <strong>{{user}}</strong> </div>
+
+<p>Linked OAuth User token: <pre>{{ user.oauth2_token }}</pre></p>
+{% if  linked_user %}
+<br>
+    <p>Linked OAuth User account:</p><pre>{{ linked_user }}</pre>
+{% endif %}
+
+<a href="{{ url_for('vulnerable_login') }}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 my-5 px-4 rounded"> 
+    Link/Change OAuth account
+</a>	
+
+{% else %}
+<form action="{{ url_for('login_webpage') }}" method="post">
+  <input type="text" name="username" placeholder="username">
+  <button type="submit">Login / Signup</button>
+</form>
+{% endif %}
+
