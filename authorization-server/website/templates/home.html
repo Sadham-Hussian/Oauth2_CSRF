@@ -1,6 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+
 {% if user %}
-<style>pre{white-space:wrap}</style>
-<div>Logged in as <strong>{{user}}</strong> (<a href="{{ url_for('.logout') }}">Log Out</a>)</div>
+<div class="mt-6">Logged in as <strong>{{user}}</strong> (<a class="underline text-blue-500" href="{{ url_for('.logout') }}">Log Out</a>)</div>
 
 {% for client in clients %}
 <pre>
@@ -16,11 +18,13 @@
 <hr>
 {% endfor %}
 
-<br><a href="{{ url_for('.create_client') }}">Create Client</a>
+<br><a class="underline text-blue-500" href="{{ url_for('.create_client') }}">Create Client</a>
 
 {% else %}
-<form action="" method="post">
-  <input type="text" name="username" placeholder="username">
-  <button type="submit">Login / Signup</button>
+<form action="" method="post" class="m-6">
+  <input type="text" class="border py-2 px-3 text-grey-darkest" name="username" placeholder="username">
+  <button type="submit" class="bg-green-500 hover:bg-green-700 text-white uppercase  mx-auto p-2 rounded">Login / Signup</button>
 </form>
 {% endif %}
+
+{% endblock content %}

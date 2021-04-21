@@ -1,22 +1,38 @@
-<p>The application <strong>{{grant.client.client_name}}</strong> is requesting:
-<strong>{{ grant.request.scope }}</strong>
-</p>
+{% extends 'base.html' %}
+{% block content %}
 
-<p>
-  from You - a.k.a. <strong>{{ user.username }}</strong>
-</p>
-
-<form action="" method="post">
-  <label>
-    <input type="checkbox" name="confirm">
-    <span>Consent?</span>
-  </label>
-  {% if not user %}
-  <p>You haven't logged in. Log in with:</p>
-  <div>
-    <input type="text" name="username">
+<div class="flex justify-center w items-center font-sans font-light text-gray-700">
+  
+<div class="rounded rounded-t-lg w-1/2 overflow-hidden shadow max-w-xs my-3">
+<div class="text-center px-3 pb-6 pt-2">
+  <h3 class="text-black text-sm bold font-sans">Authorize app</h3>
+  <p class="mt-2 font-sans font-light text-gray-700">
+    The application <br><span class="font-sans text-black bold bg-green-100 p-1 rounded">{{grant.client.client_name}}</span> </p>
+    <p>is requesting access to <br>
+      <span class="font-sans bold text-black bg-blue-100 p-1 rounded">{{ grant.request.scope }}</span>
+  </p>
+  <p class="font-sans font-light text-gray-700">
+      from You (<strong>{{ user.username }})
+  </p>
+</div>
+  <div class="flex justify-center pb-3 text-gray-700">
+    <form action="" method="post">
+      <label>
+        <input type="checkbox" name="confirm">
+        <span>Consent?</span>
+      </label>
+      {% if not user %}
+      <p>You haven't logged in. Log in with:</p>
+      <div>
+        <input type="text" name="username">
+      </div>
+      {% endif %}
+      <br>
+      <button class="bg-green-500 hover:bg-green-700 text-white   mx-auto p-2 rounded">Submit</button>
+    </form>
+    
   </div>
-  {% endif %}
-  <br>
-  <button>Submit</button>
-</form>
+</div>
+
+</div>
+{% endblock content %}

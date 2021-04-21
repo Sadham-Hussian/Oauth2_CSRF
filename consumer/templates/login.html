@@ -1,6 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+Login | Consumer
+{% endblock title %}
+{% block content %}
+
 {% if not user %}
-<form action="" method="post">
-  <input type="text" name="username" placeholder="username">
-  <button type="submit">Login / Signup</button>
+<form action="" method="post" class="m-6">
+  <input type="text" class="border py-2 px-3 text-grey-darkest" name="username" placeholder="Username">
+  <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white uppercase  mx-auto p-2 rounded">Login / Signup</button>
 </form>
 {% endif %}
+
+{% endblock content %}

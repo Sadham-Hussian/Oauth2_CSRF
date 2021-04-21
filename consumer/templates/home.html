@@ -1,18 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+Consumer Home
+{% endblock title %}
+{% block content %}
+
 {% if user %}
-<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-<style>pre{white-space:wrap}</style>
-<div class="text-xl font-medium text-black">Logged in as <strong>{{user}}</strong> </div>
-
-<p>Linked OAuth User token: <pre>{{ user.oauth2_token }}</pre></p>
+<div class="flex flex-wrap items-center content-center justify-center">
+  <div class="my-4 ">
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="px-6 py-4 ">
+    <div class="font-bold text-xl mb-2">User: {{ user }}</div>
+    <p class="text-gray-700 text-base">
+      Linked OAuth User token:
+    </p>
+    <p>{{ user.oauth2_token }}</p>
 {% if  linked_user %}
-<br>
-    <p>Linked OAuth User account:</p><pre>{{ linked_user }}</pre>
+      <p class="text-gray-700 text-base">Linked OAuth User account:</p>
+      <p>{{ linked_user }}</p>
 {% endif %}
-
+<div class="block mt-6 ">
 <a href="{{ url_for('vulnerable_login') }}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 my-5 px-4 rounded"> 
-    Link/Change OAuth account
-</a>	
+  Link OAuth (vulnerable)
+</a>
+<br><br>
+<a href="{{ url_for('protected_login') }}" class="mt-6 bg-blue-500 hover:bg-blue-700 text-white py-2 my-5 px-4 rounded"> 
+Link OAuth (protected)
+</a>
+</div>
+  </div>
+</div>
+</div>
+</div>
+
 
 {% else %}
 <form action="{{ url_for('login_webpage') }}" method="post">
@@ -21,3 +41,4 @@
 </form>
 {% endif %}
 
+{% endblock content %}

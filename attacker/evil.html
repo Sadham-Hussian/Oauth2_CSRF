@@ -1,14 +1,29 @@
-{% extends 'base.html' %}
-{% block title %}
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <title>  
+    
 Evil site
-{% endblock title %}
-{% block content %}
+
+  </title>
+  <!-- ... -->
+</head>
+<body>
+  <nav class="flex items-center justify-between flex-wrap bg-red-500 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <span class="font-semibold text-xl tracking-tight">Eve's travel blog</span>
+    </div>
+  </nav>
+  
 
 <div class="flex flex-wrap items-center content-center justify-center">
     <div class="my-4 ">
 <div class="max-w-sm rounded overflow-hidden shadow-lg">
     <div class="px-6 py-4">
-        <img src="http://localhost:4000/consumer/oauth2/vulnerable/callback?code=iFJOVJ5ZnFIAn9D1FzFAr7A4CIp2YvJgcTS8gTgdVwzUYkCO" />
+        <img src="http://localhost:4000/consumer/oauth2/protected/callback?code=Y6ZITnJXLESOTE4SUoYNXj3iZn3r6MbsKxX78ZwzRjwGd3Wt" />
       <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
       <p class="text-gray-700 text-base">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
@@ -22,4 +37,6 @@ Evil site
   </div>
 </div>
 </div>
-  {% endblock content %}
+  
+</body>
+</html>
